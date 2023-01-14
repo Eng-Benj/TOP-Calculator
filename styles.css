@@ -46,11 +46,18 @@ button, .blank {
 button {
     border: 1px solid black;
     border-radius: 4px;
+    transition: all 0.25s ease;
 }
 
-.blank {
+.buttons > .col > button.pressed {
+    background-color: #555555;
+    transition: all 0.25s ease;
+}
+
+.col > .blank {
     color: white;
     border: 1px solid white;
+    font-size: 90%;
 }
 
 .col.one, .col.three {
@@ -61,15 +68,26 @@ button {
     background-color: #aaaaaa;
 }
 
-#clear, #equals {
-    flex: auto;
-    padding-top: 85%;
+.rm {
+    flex-direction: column;
+    gap:2px;
 }
 
-#clear {
+#clear, #equals, #del {
     background-color: #aaaaaa;
+}
+
+#clear, #del {
+    padding-top: 31%;
+    padding-bottom: 31%;
 }
 
 #equals {
-    background-color: #aaaaaa;
+    padding-top: 75%;
+    padding-bottom: 75%;
+}
+
+#clear.pressed, #del.pressed, #equals.pressed {
+    background-color: #555555;
+    transition: all 0.25s ease;
 }
