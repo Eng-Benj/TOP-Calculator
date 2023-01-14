@@ -8,6 +8,7 @@ function formNumber(buttonPressed) {
     displayCalc.textContent += nums[0]
     operatorDisplay != "" ? displayCalc.textContent += " " + operatorDisplay : displayCalc.textContent += "";
     nums[1] ? displayCalc.textContent += " " + nums[1] : displayCalc.textContent += "";
+    eq = false
 };
 
 function formOperator(buttonText, buttonID) {
