@@ -1,7 +1,8 @@
-let nums = ["", ""], operator = "", operatorDisplay = "";
+let nums = ["", ""], operator = "", operatorDisplay = "", eq = false;
 const displayCalc = document.querySelector("#calculation");
 
 function formNumber(buttonPressed) {
+    if (eq === true) {clear()};
     displayCalc.textContent = ""
     operator === "" ? nums[0] += buttonPressed : nums[1]+= buttonPressed;
     displayCalc.textContent += nums[0]
@@ -17,6 +18,7 @@ function formOperator(buttonText, buttonID) {
     operatorDisplay = buttonText;
     displayCalc.textContent += nums[0] + " " + operatorDisplay
     nums[1] ? displayCalc.textContent += " " + nums[1] : displayCalc.textContent += "";
+    eq = false
 };
 
 function addition(num1, num2) {
@@ -50,18 +52,27 @@ function operation(nums, operator) {
     operator = "";
     operatorDisplay = "";
     nums[1] = "";
-    nums[0] = partialResult.toString();
     let result
     if (partialResult.toString().split("").length > 12) {
         if (partialResult.toString().includes(".")) {
             result = partialResult.toFixed(10)
+            let zeros = result.split("")
+            for (let i = zeros.length-1; i >=0; i--) {
+                if (zeros[i] === ".") {
+                    zeros = zeros.slice(0, i);
+                    break;
+                } else if (zeros[i] === "0") {zeros = zeros.slice(0, i)}
+            }
+            result = zeros.toString().replace(",","")
         } else {
             displayCalc.textContent = "Too big!";
             return
         }
     } else {result = partialResult};
-    displayCalc.textContent = result;
+    nums[0] = result
+    displayCalc.textContent = nums[0];
     operatorDisplay != "" ? displayCalc.textContent += " " + operatorDisplay : displayCalc.textContent += ""; 
+    eq = true
 }
 
 function clear() {
