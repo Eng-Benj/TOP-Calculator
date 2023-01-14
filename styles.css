@@ -1,0 +1,75 @@
+body , div, button {
+    display: flex;
+    justify-content: center;
+    margin: 1px;
+}
+
+.case, .col {
+    flex-direction: column;
+    gap: 1px;
+}
+
+.case {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px;
+    width: 640px;
+    flex: 0 1 auto;
+    margin: 32px;
+}
+
+#display {
+    border: 1px solid black;
+    border-radius: 4px;
+    justify-content: flex-end;
+    padding-top: 7%;
+    padding-bottom:7%;
+    padding-right: 9%;
+}
+
+#calculation { font-size: 120%;}
+
+.buttons {
+    justify-content: space-evenly;
+}
+
+button, .col, .blank{
+    flex: 1 1 auto;
+    font-size: 95%;
+}
+
+button, .blank {
+    padding-top: 40%;
+    padding-bottom: 40%;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.blank {
+    color: white;
+    border: 1px solid white;
+}
+
+.col.one, .col.three {
+    justify-content: flex-start;
+}
+
+.col.four > button {
+    background-color: #aaaaaa;
+}
+
+#clear, #equals {
+    flex: auto;
+    padding-top: 85%;
+}
+
+#clear {
+    background-color: #aaaaaa;
+}
+
+#equals {
+    background-color: #aaaaaa;
+}
